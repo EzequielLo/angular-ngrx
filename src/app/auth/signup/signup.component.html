@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h3>singup</h3>
+    <hr />
+    <form [formGroup]="singupForm" (ngSubmit)="onSingupSubmit()">
+
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email" />
+        <div *ngIf="
+            singupForm.controls['email'].touched && singupForm.controls['email'].valid
+          ">
+          <div *ngIf="singupForm.controls['email'].errors && singupForm.controls['email'].errors['required']">
+            Email is required
+          </div>
+          <div *ngIf="singupForm.controls['email'].errors && singupForm.controls['email'].errors['email']">
+            Invalid Email
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password" />
+        <div *ngIf="
+            singupForm.get('password')!.touched &&
+            !singupForm.get('password')!.valid
+          ">
+          <div>Password is required</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary" [disabled]="!singupForm.valid">
+          SingUp
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

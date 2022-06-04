@@ -35,10 +35,6 @@ export class EditPostComponent implements OnInit, OnDestroy {
         })
       }
     });
-<<<<<<< HEAD
-=======
-
->>>>>>> b1ca0f8c6869847c693f53dac63e57f2da673545
   }
 
   createForm() {
